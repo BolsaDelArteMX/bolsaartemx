@@ -25,7 +25,7 @@ function Formulario() {
   const [telefono, setTelefono] = useState('');
   const [procedencia, setProcedencia] = useState('');
   const [direccion, setDireccion] = useState('');
-  
+  const [redes, setRedes] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,6 +39,7 @@ function Formulario() {
       telefono: telefono,
       procedencia: procedencia,
       direccion: direccion,
+      redes: redes,
       fecha: new Date().toISOString()
     })
     .then(() => {
@@ -47,6 +48,8 @@ function Formulario() {
       setEmail('');
       setTelefono('');
       setProcedencia('');
+      setDireccion('');
+      setRedes('');
     })
     .catch((error) => {
       console.error('Error al enviar:', error);
@@ -107,7 +110,19 @@ function Formulario() {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="procedencia" className="form-label text-muted">Institución</label>
+                  <label htmlFor="redes" className="form-label text-muted">Instagram/Facebook</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="redes"
+                    value={redes}
+                    onChange={(e) => setRedes(e.target.value)}
+                    required
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label htmlFor="redes" className="form-label text-muted">Institución</label>
                   <input
                     type="text"
                     className="form-control"
